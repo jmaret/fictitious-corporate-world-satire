@@ -193,7 +193,7 @@ body.evening .card {
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.25);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 700px) {
   .gallery-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
