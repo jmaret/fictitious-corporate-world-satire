@@ -80,6 +80,11 @@ body {
   line-height: 1.8;
 }
 
+.gallery-row {
+  display: grid;
+  gap: 2rem;
+}
+
 .gallery {
   display: grid;
   gap: 2rem;
@@ -187,8 +192,11 @@ body.evening .card {
 }
 
 @media (min-width: 900px) {
+  .gallery-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .gallery {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
   }
   .intro {
     grid-template-columns: 1fr;
