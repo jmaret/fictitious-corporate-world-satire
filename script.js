@@ -44,7 +44,7 @@ setTheme();
 
 const imageModal = document.getElementById('image-modal');
 const modalImage = imageModal.querySelector('.image-modal__image');
-const galleryImages = document.querySelectorAll('.card img');
+const lightboxImages = document.querySelectorAll('.card img, .author-thumbnail img');
 
 function openImageModal(image) {
   modalImage.src = image.currentSrc || image.src;
@@ -62,7 +62,7 @@ function closeImageModal() {
   document.body.style.overflow = '';
 }
 
-galleryImages.forEach((image) => {
+lightboxImages.forEach((image) => {
   image.addEventListener('click', () => openImageModal(image));
 });
 
