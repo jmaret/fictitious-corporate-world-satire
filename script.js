@@ -41,3 +41,37 @@ function setTheme() {
 }
 
 setTheme();
+
+const imageModal = document.getElementById('image-modal');
+const modalImage = imageModal.querySelector('.image-modal__image');
+const galleryImages = document.querySelectorAll('.card img');
+
+function openImageModal(image) {
+  modalImage.src = image.currentSrc || image.src;
+  modalImage.alt = image.alt;
+  imageModal.hidden = false;
+  imageModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  imageModal.querySelector('.image-modal__close').focus();
+}
+
+function closeImageModal() {
+  imageModal.hidden = true;
+  imageModal.setAttribute('aria-hidden', 'true');
+  modalImage.removeAttribute('src');
+  document.body.style.overflow = '';
+}
+
+galleryImages.forEach((image) => {
+  image.addEventListener('click', () => openImageModal(image));
+});
+
+imageModal.querySelectorAll('[data-modal-close]').forEach((element) => {
+  element.addEventListener('click', closeImageModal);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !imageModal.hidden) {
+    closeImageModal();
+  }
+});
