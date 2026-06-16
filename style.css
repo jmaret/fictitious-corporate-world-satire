@@ -20,6 +20,46 @@ body {
   color: var(--text);
 }
 
+.tab-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(243, 241, 235, 0.86);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(34, 34, 42, 0.08);
+}
+
+.tab-button {
+  border: 1px solid rgba(34, 34, 42, 0.14);
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--muted);
+  font: 700 0.82rem/1.2 'Inter', system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.tab-button:hover,
+.tab-button:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  outline: none;
+}
+
+.tab-button.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
 .hero {
   padding: 5rem 1.5rem 4rem;
   text-align: center;
@@ -134,6 +174,18 @@ body {
   border-top: 6px solid #90a37c;
 }
 
+.card--eight {
+  border-top: 6px solid #2f9c95;
+}
+
+.card--ten {
+  border-top: 6px solid #d6a23e;
+}
+
+.card--eleven {
+  border-top: 6px solid #d7854d;
+}
+
 .cta {
   margin-top: 3rem;
   padding: 2rem;
@@ -193,6 +245,23 @@ body.evening .card {
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.25);
 }
 
+body.evening .tab-nav {
+  background: rgba(26, 22, 37, 0.86);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+body.evening .tab-button {
+  background: rgba(28, 24, 42, 0.78);
+  border-color: rgba(241, 237, 244, 0.18);
+  color: #d6ced9;
+}
+
+body.evening .tab-button.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
 @media (min-width: 700px) {
   .gallery-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -203,5 +272,16 @@ body.evening .card {
   }
   .intro {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .tab-nav {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .tab-button {
+    width: 100%;
   }
 }
