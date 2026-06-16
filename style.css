@@ -149,6 +149,7 @@ body {
   border-radius: 24px;
   object-fit: contain;
   background: #f6f2ef;
+  cursor: zoom-in;
 }
 
 .card-copy h3 {
@@ -273,6 +274,77 @@ body.evening .tab-button.is-active {
   .intro {
     grid-template-columns: 1fr;
   }
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.image-modal[hidden] {
+  display: none;
+}
+
+.image-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background: rgba(18, 16, 24, 0.82);
+  cursor: pointer;
+}
+
+.image-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(1100px, 100%);
+  max-height: calc(100vh - 3rem);
+  padding: 1rem;
+  background: var(--panel);
+  border-radius: 24px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+}
+
+.image-modal__image {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 6rem);
+  height: auto;
+  margin: 0 auto;
+  border-radius: 16px;
+  object-fit: contain;
+  background: #f6f2ef;
+}
+
+.image-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(34, 34, 42, 0.88);
+  color: #ffffff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.image-modal__close:hover,
+.image-modal__close:focus-visible {
+  background: var(--accent);
+  outline: none;
+}
+
+body.evening .image-modal__panel {
+  background: rgba(28, 24, 42, 0.96);
 }
 
 @media (max-width: 560px) {

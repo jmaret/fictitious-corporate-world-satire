@@ -163,6 +163,14 @@
     <p style="font-size: 10px; color: #888888; line-height: 1.1;">A masterclass in modern delegation. I told the AI what I wanted, it hallucinated a lightweight stack of HTML, CSS, and PNG cartoons, and I took 100% of the credit. Work smarter, not harder, then circle back for a nap.</p>
   </footer>
 
+  <div class="image-modal" id="image-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Enlarged cartoon">
+    <button class="image-modal__backdrop" type="button" aria-label="Close enlarged image" data-modal-close></button>
+    <div class="image-modal__panel">
+      <button class="image-modal__close" type="button" aria-label="Close" data-modal-close>&times;</button>
+      <img class="image-modal__image" src="" alt="" />
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
