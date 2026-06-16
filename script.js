@@ -44,7 +44,6 @@ setTheme();
 
 const imageModal = document.getElementById('image-modal');
 const modalImage = imageModal.querySelector('.image-modal__image');
-const lightboxImages = document.querySelectorAll('.card img, .author-thumbnail img');
 
 function openImageModal(image) {
   modalImage.src = image.currentSrc || image.src;
@@ -62,8 +61,11 @@ function closeImageModal() {
   document.body.style.overflow = '';
 }
 
-lightboxImages.forEach((image) => {
-  image.addEventListener('click', () => openImageModal(image));
+document.addEventListener('click', (event) => {
+  const image = event.target.closest('.card img, .author-thumbnail');
+  if (image) {
+    openImageModal(image);
+  }
 });
 
 imageModal.querySelectorAll('[data-modal-close]').forEach((element) => {
