@@ -1,32 +1,6 @@
 const tabButtons = document.querySelectorAll('[data-tab-target]');
 const tabPanels = document.querySelectorAll('.tab-panel');
 
-const GALLERY_COLUMN_WIDTH = 700;
-
-function getGalleryColumns(width) {
-  if (width >= GALLERY_COLUMN_WIDTH * 3) {
-    return 3;
-  }
-
-  if (width >= GALLERY_COLUMN_WIDTH * 2) {
-    return 2;
-  }
-
-  return 1;
-}
-
-function updateGalleryColumns(root = document) {
-  root.querySelectorAll('.gallery-grid').forEach((grid) => {
-    const width = grid.getBoundingClientRect().width;
-    if (!width) {
-      return;
-    }
-
-    const columns = getGalleryColumns(width);
-    grid.style.setProperty('--gallery-columns', String(columns));
-  });
-}
-
 function animateCards(panel = document) {
   const visibleCards = panel.querySelectorAll('.card');
 
@@ -38,14 +12,6 @@ function animateCards(panel = document) {
 }
 
 animateCards();
-updateGalleryColumns();
-
-window.addEventListener('resize', () => {
-  const activePanel = document.querySelector('.tab-panel:not([hidden])');
-  if (activePanel) {
-    updateGalleryColumns(activePanel);
-  }
-});
 
 tabButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -63,10 +29,7 @@ tabButtons.forEach((button) => {
       panel.classList.toggle('is-active', isActive);
 
       if (isActive) {
-        requestAnimationFrame(() => {
-          updateGalleryColumns(panel);
-          animateCards(panel);
-        });
+        animateCards(panel);
       }
     });
   });
