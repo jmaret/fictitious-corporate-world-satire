@@ -1,6 +1,45 @@
 const tabButtons = document.querySelectorAll('[data-tab-target]');
 const tabPanels = document.querySelectorAll('.tab-panel');
 
+const GALLERY_MIN_CARD_WIDTH = 280;
+const GALLERY_GAP = 32;
+
+function getMaxGalleryColumns(width) {
+  if (width >= GALLERY_MIN_CARD_WIDTH * 3 + GALLERY_GAP * 2) {
+    return 3;
+  }
+
+  if (width >= GALLERY_MIN_CARD_WIDTH * 2 + GALLERY_GAP) {
+    return 2;
+  }
+
+  return 1;
+}
+
+function getBalancedGalleryColumns(itemCount, maxColumns) {
+  for (let columns = Math.min(3, maxColumns); columns >= 1; columns -= 1) {
+    if (itemCount % columns === 0) {
+      return columns;
+    }
+  }
+
+  return 1;
+}
+
+function updateGalleryColumns(root = document) {
+  root.querySelectorAll('.gallery-grid').forEach((grid) => {
+    const width = grid.getBoundingClientRect().width;
+    if (!width) {
+      return;
+    }
+
+    const itemCount = grid.children.length;
+    const maxColumns = getMaxGalleryColumns(width);
+    const columns = getBalancedGalleryColumns(itemCount, maxColumns);
+    grid.style.setProperty('--gallery-columns', String(columns));
+  });
+}
+
 function animateCards(panel = document) {
   const visibleCards = panel.querySelectorAll('.card');
 
@@ -12,6 +51,14 @@ function animateCards(panel = document) {
 }
 
 animateCards();
+updateGalleryColumns();
+
+window.addEventListener('resize', () => {
+  const activePanel = document.querySelector('.tab-panel:not([hidden])');
+  if (activePanel) {
+    updateGalleryColumns(activePanel);
+  }
+});
 
 tabButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -29,7 +76,10 @@ tabButtons.forEach((button) => {
       panel.classList.toggle('is-active', isActive);
 
       if (isActive) {
-        animateCards(panel);
+        requestAnimationFrame(() => {
+          updateGalleryColumns(panel);
+          animateCards(panel);
+        });
       }
     });
   });

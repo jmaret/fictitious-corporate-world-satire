@@ -140,20 +140,10 @@ body {
   line-height: 1.8;
 }
 
-.gallery-row {
+.gallery-grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: 1fr;
-}
-
-.gallery-row + .gallery-row {
-  margin-top: 2rem;
-}
-
-.gallery {
-  display: grid;
-  gap: 2rem;
-  width: 100%;
+  grid-template-columns: repeat(var(--gallery-columns, 1), minmax(0, 1fr));
 }
 
 .card {
@@ -306,19 +296,6 @@ body.evening .tab-button.is-active {
 body.evening .author-thumbnail {
   background: rgba(28, 24, 42, 0.92);
   border-color: rgba(241, 237, 244, 0.24);
-}
-
-@media (min-width: 700px) {
-  .gallery-row {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: start;
-  }
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-  .intro {
-    grid-template-columns: 1fr;
-  }
 }
 
 .image-modal {
