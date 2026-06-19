@@ -211,6 +211,14 @@ body {
   border-top: 6px solid #2f9c95;
 }
 
+.card--fourteen {
+  border-top: 6px solid #bf4f82;
+}
+
+.card--fifteen {
+  border-top: 6px solid #6d7fce;
+}
+
 .cta {
   margin-top: 3rem;
   padding: 2rem;
