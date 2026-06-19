@@ -1,26 +1,15 @@
 const tabButtons = document.querySelectorAll('[data-tab-target]');
 const tabPanels = document.querySelectorAll('.tab-panel');
 
-const GALLERY_MIN_CARD_WIDTH = 280;
-const GALLERY_GAP = 32;
+const GALLERY_COLUMN_WIDTH = 700;
 
-function getMaxGalleryColumns(width) {
-  if (width >= GALLERY_MIN_CARD_WIDTH * 3 + GALLERY_GAP * 2) {
+function getGalleryColumns(width) {
+  if (width >= GALLERY_COLUMN_WIDTH * 3) {
     return 3;
   }
 
-  if (width >= GALLERY_MIN_CARD_WIDTH * 2 + GALLERY_GAP) {
+  if (width >= GALLERY_COLUMN_WIDTH * 2) {
     return 2;
-  }
-
-  return 1;
-}
-
-function getBalancedGalleryColumns(itemCount, maxColumns) {
-  for (let columns = Math.min(3, maxColumns); columns >= 1; columns -= 1) {
-    if (itemCount % columns === 0) {
-      return columns;
-    }
   }
 
   return 1;
@@ -33,9 +22,7 @@ function updateGalleryColumns(root = document) {
       return;
     }
 
-    const itemCount = grid.children.length;
-    const maxColumns = getMaxGalleryColumns(width);
-    const columns = getBalancedGalleryColumns(itemCount, maxColumns);
+    const columns = getGalleryColumns(width);
     grid.style.setProperty('--gallery-columns', String(columns));
   });
 }
