@@ -219,6 +219,10 @@ body {
   border-top: 6px solid #6d7fce;
 }
 
+.card--sixteen {
+  border-top: 6px solid #d6a23e;
+}
+
 .cta {
   margin-top: 3rem;
   padding: 2rem;
@@ -310,6 +314,12 @@ body.evening .author-thumbnail {
   }
   .intro {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
