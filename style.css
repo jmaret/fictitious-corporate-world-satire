@@ -317,6 +317,12 @@ body.evening .author-thumbnail {
   }
 }
 
+@media (min-width: 1024px) {
+  .gallery-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .image-modal {
   position: fixed;
   inset: 0;
