@@ -146,6 +146,10 @@ body {
   grid-template-columns: 1fr;
 }
 
+.gallery-row + .gallery-row {
+  margin-top: 2rem;
+}
+
 .gallery {
   display: grid;
   gap: 2rem;
