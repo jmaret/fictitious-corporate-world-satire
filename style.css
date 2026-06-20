@@ -205,6 +205,18 @@ body {
   border-top: 6px solid #2f9c95;
 }
 
+.card--co-thirteen {
+  border-top: 6px solid #8586ff;
+}
+
+.card--co-twelve {
+  border-top: 6px solid #4a90a4;
+}
+
+.card--co-eleven {
+  border-top: 6px solid #c45c5c;
+}
+
 .card--ten {
   border-top: 6px solid #d6a23e;
 }
