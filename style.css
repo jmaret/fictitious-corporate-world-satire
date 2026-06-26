@@ -289,6 +289,18 @@ body {
   border-top: 6px solid #6d7fce;
 }
 
+.card--ci-twenty-two {
+  border-top: 6px solid #e07a5f;
+}
+
+.card--ci-twenty-one {
+  border-top: 6px solid #81b29a;
+}
+
+.card--ci-twenty {
+  border-top: 6px solid #3d405b;
+}
+
 .card--ci-nineteen {
   border-top: 6px solid #8586ff;
 }
