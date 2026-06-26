@@ -26,7 +26,7 @@ body {
   z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 1rem;
   padding: 0.75rem 1rem;
   background: rgba(243, 241, 235, 0.86);
@@ -34,11 +34,48 @@ body {
   box-shadow: 0 10px 30px rgba(34, 34, 42, 0.08);
 }
 
+.tab-nav__start,
+.tab-nav__end {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .tab-nav__buttons {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
   flex-wrap: wrap;
+  flex: 1;
+}
+
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(34, 34, 42, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--accent);
+  font: 700 0.82rem/1.2 'Inter', system-ui, sans-serif;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.contact-email:hover,
+.contact-email:focus-visible {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--accent);
+  outline: none;
+}
+
+.contact-email__icon {
+  width: 1rem;
+  height: 1rem;
+  fill: currentColor;
+  flex-shrink: 0;
 }
 
 .author-thumbnail {
@@ -341,6 +378,19 @@ body.evening .tab-button.is-active {
   color: #ffffff;
 }
 
+body.evening .contact-email {
+  background: rgba(28, 24, 42, 0.78);
+  border-color: rgba(241, 237, 244, 0.18);
+  color: #f1edf4;
+}
+
+body.evening .contact-email:hover,
+body.evening .contact-email:focus-visible {
+  border-color: var(--accent);
+  background: rgba(28, 24, 42, 0.96);
+  color: #ffffff;
+}
+
 body.evening .author-thumbnail {
   background: rgba(28, 24, 42, 0.92);
   border-color: rgba(241, 237, 244, 0.24);
@@ -423,6 +473,11 @@ body.evening .image-modal__panel {
     flex-direction: column;
   }
 
+  .tab-nav__start,
+  .tab-nav__end {
+    justify-content: center;
+  }
+
   .tab-nav__buttons {
     flex-direction: column;
     align-items: stretch;
@@ -430,6 +485,11 @@ body.evening .image-modal__panel {
 
   .author-thumbnail {
     align-self: center;
+  }
+
+  .contact-email {
+    justify-content: center;
+    width: 100%;
   }
 
   .tab-button {
