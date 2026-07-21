@@ -245,6 +245,18 @@ body {
   border-top: 6px solid #2f9c95;
 }
 
+.card--co-nineteen {
+  border-top: 6px solid #6b8f71;
+}
+
+.card--co-eighteen {
+  border-top: 6px solid #b85c38;
+}
+
+.card--co-seventeen {
+  border-top: 6px solid #5c6bc0;
+}
+
 .card--co-sixteen {
   border-top: 6px solid #e07a5f;
 }
