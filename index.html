@@ -19,6 +19,43 @@
       <button class="tab-button" type="button" data-tab-target="civilian" aria-controls="civilian" aria-selected="false">Fictitious Civilian Life Satire</button>
     </div>
     <div class="tab-nav__end">
+      <div class="version-control">
+        <button
+          class="version-button"
+          type="button"
+          id="version-button"
+          aria-label="Show site version and latest change details"
+          aria-expanded="false"
+          aria-controls="version-popover"
+        >
+          <svg class="version-button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+          </svg>
+        </button>
+        <div
+          class="version-popover"
+          id="version-popover"
+          role="dialog"
+          aria-labelledby="version-popover-title"
+          hidden
+        >
+          <p class="version-popover__eyebrow" id="version-popover-title">Site release</p>
+          <dl class="version-popover__list">
+            <div>
+              <dt>Version</dt>
+              <dd id="version-number"></dd>
+            </div>
+            <div>
+              <dt>Latest change</dt>
+              <dd id="version-notes"></dd>
+            </div>
+            <div>
+              <dt>Deployed</dt>
+              <dd id="version-deployed"></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
       <a class="contact-email" href="mailto:info@satyre.xyz" aria-label="Contact Satyre by email at info@satyre.xyz">
         <svg class="contact-email__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />

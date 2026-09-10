@@ -1,5 +1,68 @@
+/* Update these fields whenever a new change is deployed. */
+const SITE_VERSION = {
+  version: '1.22',
+  notes:
+    'Added a shared version info control in the nav. Latest content update: cartoon_ci_25, cartoon_ci_24, and cartoon_ci_23 as the first row on the Civilian Life Satire tab.',
+  deployedLabel: 'September 10, 2026, 1:35 PM IST (UTC+5:30)',
+};
+
 const tabButtons = document.querySelectorAll('[data-tab-target]');
 const tabPanels = document.querySelectorAll('.tab-panel');
+
+const versionButton = document.getElementById('version-button');
+const versionPopover = document.getElementById('version-popover');
+
+function populateVersionInfo() {
+  document.getElementById('version-number').textContent = SITE_VERSION.version;
+  document.getElementById('version-notes').textContent = SITE_VERSION.notes;
+  document.getElementById('version-deployed').textContent = SITE_VERSION.deployedLabel;
+  versionButton.setAttribute(
+    'title',
+    `Version ${SITE_VERSION.version} · Deployed ${SITE_VERSION.deployedLabel}`
+  );
+}
+
+function openVersionPopover() {
+  versionPopover.hidden = false;
+  versionButton.setAttribute('aria-expanded', 'true');
+}
+
+function closeVersionPopover() {
+  if (versionPopover.hidden) {
+    return;
+  }
+
+  versionPopover.hidden = true;
+  versionButton.setAttribute('aria-expanded', 'false');
+}
+
+function toggleVersionPopover() {
+  if (versionPopover.hidden) {
+    openVersionPopover();
+  } else {
+    closeVersionPopover();
+  }
+}
+
+populateVersionInfo();
+
+versionButton.addEventListener('click', (event) => {
+  event.stopPropagation();
+  toggleVersionPopover();
+});
+
+document.addEventListener('click', (event) => {
+  if (!versionPopover.hidden && !event.target.closest('.version-control')) {
+    closeVersionPopover();
+  }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !versionPopover.hidden) {
+    closeVersionPopover();
+    versionButton.focus();
+  }
+});
 
 function animateCards(panel = document) {
   const visibleCards = panel.querySelectorAll('.card');
