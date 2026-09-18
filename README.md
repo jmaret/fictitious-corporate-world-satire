@@ -36,13 +36,13 @@ The site is a static front-end with no build step, no framework, and no backend.
 2. **Collection panels** — Each tab is a self-contained panel with its own hero copy and responsive card gallery (1 / 2 / 3 columns by breakpoint).
 3. **Card patterns** — Satire tabs use image + title + series label. Relationship Chronicles use text-first cards; click (or Enter/Space) opens the cartoon in the shared lightbox. Newest pieces are prepended so the first row is always the latest work.
 4. **Interaction layer** — Vanilla JS powers tab swaps, lightbox zoom, chronicle forthcoming-illustration state, and a version popover. No dependencies beyond Google Fonts.
-5. **Release metadata** — `SITE_VERSION` in `script.js` records version, latest-change notes, and deploy timestamp (with timezone) for the nav info control.
+5. **Release metadata** — `SITE_VERSION` in `script.js` records version, latest-change notes, and deploy timestamp (with timezone) for the nav info control. It must be updated on **every** release to `main`.
 
 ### Delivery
 
 - Hosted on **GitHub Pages** from the `main` branch root.
 - Custom domain via `CNAME` → `satyre.xyz`.
-- Changes merge to `main` and publish as static files; update `SITE_VERSION` when shipping noticeable updates.
+- Changes merge to `main` and publish as static files; **always** update `SITE_VERSION` on every release (version, notes, timestamp with timezone).
 
 ## Local preview
 

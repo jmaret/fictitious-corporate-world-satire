@@ -101,8 +101,10 @@ Newest work is **prepended** in the grid (first row = latest).
 
 1. Change content/code on a branch; merge to `main`.
 2. GitHub Pages publishes static files from repo root.
-3. On noticeable ship: update `SITE_VERSION` (`version`, `notes`, `deployedLabel` with timezone).
+3. **On every release to `main`:** update `SITE_VERSION` in `script.js`—bump `version`, rewrite `notes` for this ship, set `deployedLabel` to the actual release date/time **with timezone**. Enforced by `.cursor/rules/update-site-version-on-release.mdc`.
 4. Update living docs under `docs/` (enforced by Cursor rules).
+
+The nav info popover reads only from `SITE_VERSION`; if that object is stale, visitors see a stale release.
 
 ## 5. Extension guidelines
 
@@ -112,7 +114,7 @@ When adding a piece:
 2. Prepend a card in the matching panel in `index.html`.
 3. For chronicles: set `data-cartoon-src`; remove `data-cartoon-pending` when the art is ready.
 4. Add a border-top modifier in `style.css` if introducing a new accent class.
-5. Bump `SITE_VERSION` and refresh `docs/` + README if behavior or collections change.
+5. Bump `SITE_VERSION` on **every** merge to `main`, and refresh `docs/` + README if behavior or collections change.
 
 When adding a collection:
 

@@ -1,0 +1,30 @@
+---
+description: Always bump SITE_VERSION on every release to main
+alwaysApply: true
+---
+
+# Update site release version on every release
+
+Whenever changes will be (or are being) checked in for merge to `main`, **always** update `SITE_VERSION` in `script.js` in the same change set. Do not skip this for docs-only, rules-only, or “small” releases.
+
+## Required fields
+
+```js
+const SITE_VERSION = {
+  version: 'X.Y',           // bump patch (or minor) each release
+  notes: '...',             // plain-language summary of THIS release
+  deployedLabel: '...',     // date + time + timezone, e.g. September 18, 2026, 11:33 AM PDT (UTC-7)
+};
+```
+
+## Checklist before finishing a release PR
+
+1. Bump `version` from the previous value.
+2. Rewrite `notes` for the current release (what the visitor should know).
+3. Set `deployedLabel` to the actual release time **including timezone** (not an earlier WIP timestamp).
+4. Confirm the nav info popover will show the new values after deploy.
+
+## Do not
+
+- Leave stale `notes` or an old `deployedLabel` from a prior release.
+- Treat docs/rules-only PRs as exempt—those are releases too if they merge to `main`.

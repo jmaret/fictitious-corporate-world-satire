@@ -1,9 +1,9 @@
-/* Update these fields whenever a new change is deployed. */
+/* Update these fields on EVERY release merged to main. */
 const SITE_VERSION = {
-  version: '1.23',
+  version: '1.24',
   notes:
-    'Added Fictitious Relationship Chronicles tab with text-first cards that open cartoons on click (scaffold with forthcoming illustrations).',
-  deployedLabel: 'September 18, 2026, 11:21 AM PDT (UTC-7)',
+    'Relationship Chronicles tab (text-first sample cards), living product/architecture docs, and Cursor rules that require SITE_VERSION updates on every release.',
+  deployedLabel: 'September 18, 2026, 11:33 AM PDT (UTC-7)',
 };
 
 const tabButtons = document.querySelectorAll('[data-tab-target]');
