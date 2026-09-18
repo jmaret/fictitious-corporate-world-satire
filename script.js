@@ -1,9 +1,9 @@
 /* Update these fields whenever a new change is deployed. */
 const SITE_VERSION = {
-  version: '1.22',
+  version: '1.23',
   notes:
-    'Added a shared version info control in the nav. Latest content update: cartoon_ci_25, cartoon_ci_24, and cartoon_ci_23 as the first row on the Civilian Life Satire tab.',
-  deployedLabel: 'September 10, 2026, 1:35 PM IST (UTC+5:30)',
+    'Added Fictitious Relationship Chronicles tab with text-first cards that open cartoons on click (scaffold with forthcoming illustrations).',
+  deployedLabel: 'September 18, 2026, 11:21 AM PDT (UTC-7)',
 };
 
 const tabButtons = document.querySelectorAll('[data-tab-target]');
@@ -107,28 +107,85 @@ setTheme();
 
 const imageModal = document.getElementById('image-modal');
 const modalImage = imageModal.querySelector('.image-modal__image');
+const modalPending = document.getElementById('image-modal-pending');
+const modalPendingTitle = document.getElementById('image-modal-pending-title');
 
 function openImageModal(image) {
+  modalPending.hidden = true;
+  modalImage.hidden = false;
   modalImage.src = image.currentSrc || image.src;
   modalImage.alt = image.alt;
   imageModal.hidden = false;
   imageModal.setAttribute('aria-hidden', 'false');
+  imageModal.setAttribute('aria-label', 'Enlarged cartoon');
   document.body.style.overflow = 'hidden';
+  imageModal.querySelector('.image-modal__close').focus();
+}
+
+function openCartoonFromCard(card) {
+  const title = card.dataset.cartoonTitle || card.querySelector('h3')?.textContent || 'Cartoon';
+  const isPending = card.hasAttribute('data-cartoon-pending');
+  const src = card.dataset.cartoonSrc;
+
+  imageModal.hidden = false;
+  imageModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+
+  if (isPending || !src) {
+    modalImage.hidden = true;
+    modalImage.removeAttribute('src');
+    modalImage.alt = '';
+    modalPending.hidden = false;
+    modalPendingTitle.textContent = title;
+    imageModal.setAttribute('aria-label', `${title}. Illustration forthcoming`);
+  } else {
+    modalPending.hidden = true;
+    modalImage.hidden = false;
+    modalImage.src = src;
+    modalImage.alt = `Cartoon: ${title}`;
+    imageModal.setAttribute('aria-label', `Enlarged cartoon: ${title}`);
+  }
+
   imageModal.querySelector('.image-modal__close').focus();
 }
 
 function closeImageModal() {
   imageModal.hidden = true;
   imageModal.setAttribute('aria-hidden', 'true');
+  imageModal.setAttribute('aria-label', 'Enlarged cartoon');
+  modalImage.hidden = false;
   modalImage.removeAttribute('src');
+  modalImage.alt = '';
+  modalPending.hidden = true;
+  modalPendingTitle.textContent = '';
   document.body.style.overflow = '';
 }
 
 document.addEventListener('click', (event) => {
+  const chronicleCard = event.target.closest('[data-open-cartoon]');
+  if (chronicleCard) {
+    openCartoonFromCard(chronicleCard);
+    return;
+  }
+
   const image = event.target.closest('.card img, .author-thumbnail');
   if (image) {
     openImageModal(image);
   }
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Enter' && event.key !== ' ') {
+    return;
+  }
+
+  const chronicleCard = event.target.closest('[data-open-cartoon]');
+  if (!chronicleCard || event.target !== chronicleCard) {
+    return;
+  }
+
+  event.preventDefault();
+  openCartoonFromCard(chronicleCard);
 });
 
 imageModal.querySelectorAll('[data-modal-close]').forEach((element) => {
