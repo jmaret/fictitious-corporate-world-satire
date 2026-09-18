@@ -19,7 +19,7 @@ After any user-facing or structural change to this repo, update the living docum
 
 1. Diff your work against both docs; patch any stale sections.
 2. Set **Last updated** on each doc you edit to today’s date.
-3. If you ship a noticeable release, also update `SITE_VERSION` in `script.js` (version, notes, deploy timestamp **with timezone**).
+3. **Always** update `SITE_VERSION` in `script.js` when the change will merge to `main` (version bump, release notes, deploy timestamp **with timezone**). See also `update-site-version-on-release` rule—no exemptions for docs/rules-only PRs.
 4. Do not leave “TODO: update docs” for later—docs ship with the change.
 
 ## Examples
