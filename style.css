@@ -316,6 +316,38 @@ body {
   line-height: 1.8;
 }
 
+.card--chronicle {
+  align-content: start;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card--chronicle:hover,
+.card--chronicle:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 26px 64px rgba(34, 34, 42, 0.16);
+  outline: none;
+}
+
+.card--chronicle .card-excerpt {
+  margin-bottom: 1rem;
+}
+
+.card--chronicle .card-series {
+  font: 700 0.78rem/1.4 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.card--chronicle .card-affordance {
+  margin-top: 1rem;
+  font: 700 0.78rem/1.2 'Space Mono', monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 .card--one {
   border-top: 6px solid #bf4f82;
 }
@@ -428,6 +460,18 @@ body {
   border-top: 6px solid #d6a23e;
 }
 
+.card--re-three {
+  border-top: 6px solid #bf4f82;
+}
+
+.card--re-two {
+  border-top: 6px solid #6d7fce;
+}
+
+.card--re-one {
+  border-top: 6px solid #90a37c;
+}
+
 .cta {
   margin-top: 3rem;
   padding: 2rem;
@@ -480,6 +524,11 @@ body.evening .card-copy p,
 body.evening .intro p,
 body.evening .cta p {
   color: #d6ced9;
+}
+
+body.evening .card--chronicle .card-series,
+body.evening .card--chronicle .card-affordance {
+  color: var(--accent-soft);
 }
 
 body.evening .card {
@@ -590,6 +639,40 @@ body.evening .version-popover__list dd {
   background: #f6f2ef;
 }
 
+.image-modal__image[hidden] {
+  display: none;
+}
+
+.image-modal__pending {
+  display: grid;
+  place-content: center;
+  gap: 0.75rem;
+  min-height: min(52vh, 28rem);
+  padding: 3rem 1.5rem;
+  border-radius: 16px;
+  background: #f6f2ef;
+  text-align: center;
+}
+
+.image-modal__pending[hidden] {
+  display: none;
+}
+
+.image-modal__pending-title {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--text);
+}
+
+.image-modal__pending-copy {
+  margin: 0;
+  font: 700 0.78rem/1.2 'Space Mono', monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 .image-modal__close {
   position: absolute;
   top: 0.75rem;
@@ -614,6 +697,14 @@ body.evening .version-popover__list dd {
 
 body.evening .image-modal__panel {
   background: rgba(28, 24, 42, 0.96);
+}
+
+body.evening .image-modal__pending {
+  background: rgba(18, 16, 24, 0.55);
+}
+
+body.evening .image-modal__pending-title {
+  color: #f1edf4;
 }
 
 @media (max-width: 560px) {

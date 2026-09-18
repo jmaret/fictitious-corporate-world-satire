@@ -1,0 +1,34 @@
+---
+description: Keep product and architecture docs updated on every change
+alwaysApply: true
+---
+
+# Keep living docs current
+
+After any user-facing or structural change to this repo, update the living documents in the **same turn** before finishing.
+
+## Documents
+
+| File | Update when |
+| --- | --- |
+| `docs/PRODUCT_VISION_AND_REQUIREMENTS.md` | Collections, tone, UX requirements, non-goals, success criteria, or release expectations change |
+| `docs/ARCHITECTURE_AND_DESIGN.md` | Files, runtime shape, card/modal/tab behavior, asset naming, styling tokens, or delivery change |
+| `README.md` | High-level vision/architecture summary drifts from the docs above |
+
+## Required checklist (every change)
+
+1. Diff your work against both docs; patch any stale sections.
+2. Set **Last updated** on each doc you edit to today’s date.
+3. If you ship a noticeable release, also update `SITE_VERSION` in `script.js` (version, notes, deploy timestamp **with timezone**).
+4. Do not leave “TODO: update docs” for later—docs ship with the change.
+
+## Examples
+
+- Adding a tab or card pattern → requirements (collection + UX) **and** architecture (markup/JS/CSS).
+- New image naming convention → architecture asset table + README layout note if needed.
+- Version popover fields change → both docs’ release/version sections.
+
+## Do not
+
+- Edit plan files under `.cursor/plans/` unless the user asks.
+- Duplicate full architecture into README; keep README short and point to `docs/`.
