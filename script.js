@@ -1,9 +1,9 @@
 /* Update these fields on EVERY release merged to main. */
 const SITE_VERSION = {
-  version: '1.34',
+  version: '1.35',
   notes:
-    'Borrowed Constellations full-width feature row with eight-section essay and cartoon_rc_04 above the three chronicle cards.',
-  deployedLabel: 'October 20, 2026, 10:52 AM PDT (UTC-7)',
+    'Top Relationship Chronicles row split into Elastic Hour (left) and Borrowed Constellations (right); cartoon_rc_05 added.',
+  deployedLabel: 'October 20, 2026, 2:49 PM PDT (UTC-7)',
 };
 
 const tabButtons = document.querySelectorAll('[data-tab-target]');
