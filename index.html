@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=1.34" />
+  <link rel="stylesheet" href="style.css?v=1.35" />
 </head>
 <body>
   <nav class="tab-nav" aria-label="Satire collections">
@@ -337,37 +337,71 @@
 
     <main class="page-body">
       <div class="gallery-grid">
-        <article
-          class="card card--chronicle card--chronicle-feature card--re-four"
-          data-essay-id="essay-borrowed-constellations"
-          data-cartoon-src="images/cartoon_rc_04.png"
-          data-cartoon-title="Borrowed Constellations: Finding Home Among Fellow Strangers"
-        >
-          <div class="card-copy">
-            <h3>Borrowed Constellations: Finding Home Among Fellow Strangers</h3>
-            <p class="card-excerpt">You leave home and discover that belonging does not travel with you.</p>
-            <p class="card-excerpt">In a city full of millions, you begin assembling a life from fragments: friends who become siblings, mentors who become parents, strangers who become witnesses. Yet every connection is complicated by uncertainty. You are still becoming yourself. They are becoming themselves. Everyone is carrying unfinished versions of who they are.</p>
-            <p class="card-series">Relationship Chronicles 4</p>
-            <div class="card-actions">
-              <button
-                class="card-affordance card-affordance--button"
-                type="button"
-                data-view-essay
-                aria-label="Open essay: Borrowed Constellations: Finding Home Among Fellow Strangers"
-              >
-                Essay
-              </button>
-              <button
-                class="card-affordance card-affordance--button"
-                type="button"
-                data-view-cartoon
-                aria-label="View cartoon for Borrowed Constellations: Finding Home Among Fellow Strangers"
-              >
-                View cartoon
-              </button>
+        <div class="gallery-feature-row">
+          <article
+            class="card card--chronicle card--re-five"
+            data-essay-id="essay-elastic-hour"
+            data-cartoon-src="images/cartoon_rc_05.png"
+            data-cartoon-title="The Elastic Hour: On the Illusion of Having Time"
+          >
+            <div class="card-copy">
+              <h3>The Elastic Hour: On the Illusion of Having Time</h3>
+              <p class="card-excerpt">One person wakes to an empty calendar and feels crushed by an abundance of hours. Another wakes to a schedule so crowded that every minute has a price. Both secretly believe the other possesses what they lack.</p>
+              <p class="card-excerpt">Yet time is rarely what it appears to be.</p>
+              <p class="card-excerpt">The unemployed worker fills endless days with learning, creating, searching, and striving to make time feel valuable. The overworked professional spends money to reclaim fragments of freedom from a calendar that never stops advancing. Between them lies a shared misunderstanding: time is not simply something we have or lack. Its value shifts with uncertainty, meaning, purpose, and attention.</p>
+              <p class="card-series">Relationship Chronicles 5</p>
+              <div class="card-actions">
+                <button
+                  class="card-affordance card-affordance--button"
+                  type="button"
+                  data-view-essay
+                  aria-label="Open essay: The Elastic Hour: On the Illusion of Having Time"
+                >
+                  Essay
+                </button>
+                <button
+                  class="card-affordance card-affordance--button"
+                  type="button"
+                  data-view-cartoon
+                  aria-label="View cartoon for The Elastic Hour: On the Illusion of Having Time"
+                >
+                  View cartoon
+                </button>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+          <article
+            class="card card--chronicle card--re-four"
+            data-essay-id="essay-borrowed-constellations"
+            data-cartoon-src="images/cartoon_rc_04.png"
+            data-cartoon-title="Borrowed Constellations: Finding Home Among Fellow Strangers"
+          >
+            <div class="card-copy">
+              <h3>Borrowed Constellations: Finding Home Among Fellow Strangers</h3>
+              <p class="card-excerpt">You leave home and discover that belonging does not travel with you.</p>
+              <p class="card-excerpt">In a city full of millions, you begin assembling a life from fragments: friends who become siblings, mentors who become parents, strangers who become witnesses. Yet every connection is complicated by uncertainty. You are still becoming yourself. They are becoming themselves. Everyone is carrying unfinished versions of who they are.</p>
+              <p class="card-series">Relationship Chronicles 4</p>
+              <div class="card-actions">
+                <button
+                  class="card-affordance card-affordance--button"
+                  type="button"
+                  data-view-essay
+                  aria-label="Open essay: Borrowed Constellations: Finding Home Among Fellow Strangers"
+                >
+                  Essay
+                </button>
+                <button
+                  class="card-affordance card-affordance--button"
+                  type="button"
+                  data-view-cartoon
+                  aria-label="View cartoon for Borrowed Constellations: Finding Home Among Fellow Strangers"
+                >
+                  View cartoon
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
         <article
           class="card card--chronicle card--re-three"
           data-essay-id="essay-unsent-draft"
@@ -461,6 +495,237 @@
       </div>
     </main>
   </section>
+
+  <template id="essay-elastic-hour">
+    <article class="essay">
+      <h2 class="essay__title">The Elastic Hour: On the Illusion of Having Time</h2>
+      <section class="essay__section">
+        <h3>I. The Currency of the Invisible</h3>
+        <p>There are few things humans discuss more often than time.</p>
+        <p>We save it.</p>
+        <p>Waste it.</p>
+        <p>Spend it.</p>
+        <p>Manage it.</p>
+        <p>Lose it.</p>
+        <p>Invest it.</p>
+        <p>The language itself reveals a quiet assumption.</p>
+        <p>We speak of time as though it were money.</p>
+        <p>A finite commodity.</p>
+        <p>A measurable asset.</p>
+        <p>A resource to be optimized.</p>
+        <p>Yet time refuses to behave like currency.</p>
+        <p>Money can be accumulated.</p>
+        <p>Time can only be experienced.</p>
+        <p>And strangely, two people can possess identical hours while inhabiting entirely different realities.</p>
+        <p>One person sits before an empty calendar.</p>
+        <p>Another sits before a calendar that can no longer accommodate a single obligation.</p>
+        <p>Both complain they do not have enough time.</p>
+        <p>At first glance, this appears impossible.</p>
+        <p>Until we realize that human beings do not experience clock time.</p>
+        <p>We experience psychological time.</p>
+        <p>And psychological time obeys entirely different laws.</p>
+      </section>
+      <section class="essay__section">
+        <h3>II. The Weight of Infinite Afternoons</h3>
+        <p>Conventional wisdom imagines unemployment as an abundance of freedom.</p>
+        <p>Suddenly there are no meetings.</p>
+        <p>No deadlines.</p>
+        <p>No alarms demanding immediate obedience.</p>
+        <p>The future appears wide open.</p>
+        <p>At first, this sounds like a gift.</p>
+        <p>Then Monday arrives.</p>
+        <p>Followed by Tuesday.</p>
+        <p>Then Wednesday.</p>
+        <p>Soon an uncomfortable realization begins to emerge.</p>
+        <p>Time without structure does not always feel like freedom.</p>
+        <p>Sometimes it feels like exposure.</p>
+        <p>The unemployed person often discovers that infinite hours quickly become difficult to bear.</p>
+        <p>Not because they lack things to do.</p>
+        <p>Quite the opposite.</p>
+        <p>They begin filling the day immediately.</p>
+        <p>Online courses.</p>
+        <p>Certifications.</p>
+        <p>Applications.</p>
+        <p>Networking.</p>
+        <p>Creative projects.</p>
+        <p>Exercise.</p>
+        <p>Reading.</p>
+        <p>Learning.</p>
+        <p>Building.</p>
+        <p>Improving.</p>
+        <p>Anything that transforms empty hours into meaningful ones.</p>
+        <p>The effort is practical, but it is also existential.</p>
+        <p>Human beings are not merely frightened by scarcity.</p>
+        <p>We are frightened by vastness.</p>
+        <p>An afternoon with nothing required of us can feel less comforting than an afternoon with a clear purpose.</p>
+        <p>Unlimited time often feels suspiciously similar to uncertainty.</p>
+        <p>The calendar is empty because the future is unclear.</p>
+        <p>And uncertainty stretches time into something almost unbearable.</p>
+        <p>An hour waiting for possibility feels longer than an hour spent living inside it.</p>
+      </section>
+      <section class="essay__section">
+        <h3>III. The Price of Every Minute</h3>
+        <p>At the opposite end of the spectrum sits the professional whose calendar resembles a battlefield.</p>
+        <p>Meetings overlap meetings.</p>
+        <p>Notifications interrupt conversations.</p>
+        <p>The workday spills into evenings.</p>
+        <p>Weekends begin receiving invitations.</p>
+        <p>Every hour has been assigned.</p>
+        <p>Every moment accounted for.</p>
+        <p>This life appears entirely different from the unemployed person's.</p>
+        <p>Yet beneath the surface they often share a common experience.</p>
+        <p>Neither feels ownership of time.</p>
+        <p>One is burdened by having too much.</p>
+        <p>The other by having too little.</p>
+        <p>The busy professional begins to treat time as currency because the cost is visible.</p>
+        <p>A delayed flight becomes lost productivity.</p>
+        <p>An unnecessary meeting becomes wasted opportunity.</p>
+        <p>An interruption becomes expensive.</p>
+        <p>Eventually money itself begins transforming into a mechanism for purchasing time.</p>
+        <p>Food delivery buys an hour.</p>
+        <p>Household services buy an afternoon.</p>
+        <p>Convenience buys breathing room.</p>
+        <p>The irony is difficult to miss.</p>
+        <p>One person trades time seeking money.</p>
+        <p>The other trades money seeking time.</p>
+        <p>Each pursues what the other appears to possess naturally.</p>
+      </section>
+      <section class="essay__section">
+        <h3>IV. The Market Value of an Hour</h3>
+        <p>Modern culture frequently reduces time to economics.</p>
+        <p>An hour becomes a billable rate.</p>
+        <p>A productivity metric.</p>
+        <p>An efficiency score.</p>
+        <p>A measurable output.</p>
+        <p>And in certain contexts, this framework makes sense.</p>
+        <p>Organizations require planning.</p>
+        <p>Businesses require accountability.</p>
+        <p>Resources require allocation.</p>
+        <p>But the market's calculation of time remains incomplete.</p>
+        <p>The most valuable hours of a life rarely produce measurable output.</p>
+        <p>The conversation that saves a friendship.</p>
+        <p>The evening spent with aging parents.</p>
+        <p>The walk that clarifies a difficult decision.</p>
+        <p>The moment spent watching a child discover something for the first time.</p>
+        <p>These experiences generate little economic value.</p>
+        <p>Yet they often become the hours we remember.</p>
+        <p>The market measures utility.</p>
+        <p>The heart measures meaning.</p>
+        <p>The two are not always aligned.</p>
+      </section>
+      <section class="essay__section">
+        <h3>V. Why Time Expands and Contracts</h3>
+        <p>Time possesses a strange elasticity.</p>
+        <p>A year spent working toward a meaningful goal can disappear in a blur.</p>
+        <p>Ten minutes awaiting medical results can feel endless.</p>
+        <p>A difficult season stretches.</p>
+        <p>A joyful season vanishes.</p>
+        <p>The clock remains perfectly consistent.</p>
+        <p>Our experience does not.</p>
+        <p>Psychologists often speak of attention as the sculptor of experience.</p>
+        <p>What matters to us occupies more space.</p>
+        <p>What threatens us expands.</p>
+        <p>What nourishes us dissolves into flow.</p>
+        <p>The unemployed job seeker may find a week feeling impossibly long because each day carries uncertainty.</p>
+        <p>The exhausted executive may discover entire months disappearing without recollection because every day resembles the one before it.</p>
+        <p>One experiences too much awareness of passing time.</p>
+        <p>The other experiences too little.</p>
+        <p>Both feel disconnected from it.</p>
+      </section>
+      <section class="essay__section">
+        <h3>VI. The Illusion of the Other Side</h3>
+        <p>A curious fantasy often appears whenever we are dissatisfied.</p>
+        <p>We imagine that another version of life would solve our relationship with time.</p>
+        <p>If only I had fewer obligations.</p>
+        <p>If only I had more opportunities.</p>
+        <p>If only I had more space.</p>
+        <p>If only I had more structure.</p>
+        <p>The unemployed person imagines fulfillment waiting inside busyness.</p>
+        <p>The overwhelmed professional imagines peace waiting inside emptiness.</p>
+        <p>Yet many who have occupied both worlds discover the same restlessness following them across the divide.</p>
+        <p>Because the difficulty was never entirely located in the calendar.</p>
+        <p>The difficulty was in how meaning was distributed within it.</p>
+        <p>An empty day feels beautiful when chosen.</p>
+        <p>A prison when imposed.</p>
+        <p>A full day feels purposeful when aligned with values.</p>
+        <p>Exhausting when disconnected from them.</p>
+        <p>The quantity of time matters less than our relationship to it.</p>
+      </section>
+      <section class="essay__section">
+        <h3>VII. The Art of Occupying a Life</h3>
+        <p>Perhaps the central question is not how much time we possess.</p>
+        <p>It is how fully we inhabit it.</p>
+        <p>There are people with demanding careers who remain deeply present.</p>
+        <p>There are people with abundant freedom who feel perpetually absent from their own lives.</p>
+        <p>Neither busyness nor leisure guarantees fulfillment.</p>
+        <p>Time is not redeemed through activity alone.</p>
+        <p>Nor through idleness alone.</p>
+        <p>What we seek is participation.</p>
+        <p>The feeling that our hours belong to something.</p>
+        <p>A craft.</p>
+        <p>A community.</p>
+        <p>A relationship.</p>
+        <p>A purpose.</p>
+        <p>A curiosity.</p>
+        <p>A future.</p>
+        <p>Without such anchors, time becomes difficult to bear.</p>
+        <p>It pools around us.</p>
+        <p>Becoming heavy.</p>
+        <p>Formless.</p>
+        <p>Endless.</p>
+        <p>But when connected to meaning, the same hours acquire shape.</p>
+        <p>A direction.</p>
+        <p>A story.</p>
+        <p>A reason for movement.</p>
+      </section>
+      <section class="essay__section">
+        <h3>VIII. Beyond Time as Money</h3>
+        <p>Perhaps the greatest illusion is believing that time and money are interchangeable.</p>
+        <p>They often overlap.</p>
+        <p>But they are not the same.</p>
+        <p>Money answers the question:</p>
+        <p>"What can I obtain?"</p>
+        <p>Time answers a different question:</p>
+        <p>"How will I live?"</p>
+        <p>One is a tool.</p>
+        <p>The other is a medium.</p>
+        <p>Money can create comfort.</p>
+        <p>Time creates experience.</p>
+        <p>Money can purchase convenience.</p>
+        <p>Time permits presence.</p>
+        <p>Money can be inherited.</p>
+        <p>Time can only be spent.</p>
+        <p>Every life eventually becomes a collection of hours transformed into memories.</p>
+        <p>Some become accomplishments.</p>
+        <p>Some become relationships.</p>
+        <p>Some become regrets.</p>
+        <p>Some become wisdom.</p>
+        <p>All become the story we tell ourselves about what mattered.</p>
+      </section>
+      <section class="essay__section">
+        <h3>IX. The Elastic Hour</h3>
+        <p>Perhaps the purpose of life is not to conquer time.</p>
+        <p>Not to optimize every minute.</p>
+        <p>Not to fill every silence.</p>
+        <p>Not to eliminate every idle afternoon.</p>
+        <p>Perhaps the goal is simply to become more intimate with its changing nature.</p>
+        <p>To recognize that time expands when we fear.</p>
+        <p>Contracts when we love.</p>
+        <p>Disappears when we flow.</p>
+        <p>Lingers when we wait.</p>
+        <p>To understand that having time and feeling rich in time are not the same thing.</p>
+        <p>The unemployed learner filling a day with possibility.</p>
+        <p>The exhausted executive searching for an unscheduled evening.</p>
+        <p>The artist protecting a quiet afternoon.</p>
+        <p>The parent wishing for one more hour before a child grows older.</p>
+        <p>All are negotiating with the same mystery.</p>
+        <p>The clock keeps moving at a constant rate.</p>
+        <p>Yet each of us inhabits a different universe of time.</p>
+        <p>And perhaps wisdom begins when we stop asking whether we have enough of it.</p>
+        <p>And start asking whether we are truly present for the portion we have.</p>
+      </section>
+    </article>
+  </template>
 
   <template id="essay-borrowed-constellations">
     <article class="essay">
@@ -828,6 +1093,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=1.34"></script>
+  <script src="script.js?v=1.35"></script>
 </body>
 </html>

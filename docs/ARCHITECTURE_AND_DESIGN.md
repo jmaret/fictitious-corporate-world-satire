@@ -68,7 +68,7 @@ Each panel: `header.hero` + `main.page-body` → `.gallery-grid` of `.card` arti
 - `.card.card--chronicle` with either:
   - `data-open-cartoon` (+ optional `data-cartoon-pending`, `data-cartoon-src`, `data-cartoon-title`) → whole-card click opens cartoon / forthcoming state.
   - Essay + cartoon pair: `data-essay-id` + `data-cartoon-src`; **Essay** (`[data-view-essay]`) clones the `<template>` into `#image-modal-essay`; **View cartoon** (`[data-view-cartoon]`) opens the PNG. Card body text does not open either modal.
-- Full-width feature pieces use `.card--chronicle-feature` (`grid-column: 1 / -1`) so they occupy an entire gallery row above the standard three-column cards.
+- Feature lead pieces sit in `.gallery-feature-row` (`grid-column: 1 / -1`, two columns from 900px) above the standard three-column chronicle cards.
 - No visible cartoon on the card; text leads.
 
 ### 3.3 Asset naming
