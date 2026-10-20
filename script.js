@@ -1,9 +1,9 @@
 /* Update these fields on EVERY release merged to main. */
 const SITE_VERSION = {
-  version: '1.28',
+  version: '1.31',
   notes:
-    'Soft Inventory & The Physics of the Spark: shortened card snippet, Essay and View cartoon controls, full essay popup, and cropped cartoon_rc_01.',
-  deployedLabel: 'October 19, 2026, 8:29 PM PDT (UTC-7)',
+    'Relationship Chronicles: Unsent Draft, Two Clocks, and Soft Inventory now share Essay + View cartoon; cartoon_rc_02/03 added; CSS/JS cache-busting via ?v=.',
+  deployedLabel: 'October 19, 2026, 9:33 PM PDT (UTC-7)',
 };
 
 const tabButtons = document.querySelectorAll('[data-tab-target]');

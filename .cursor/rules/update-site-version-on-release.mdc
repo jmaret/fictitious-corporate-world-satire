@@ -22,7 +22,8 @@ const SITE_VERSION = {
 1. Bump `version` from the previous value.
 2. Rewrite `notes` for the current release (what the visitor should know).
 3. Set `deployedLabel` to the actual release time **including timezone** (not an earlier WIP timestamp).
-4. Confirm the nav info popover will show the new values after deploy.
+4. Update cache-bust query params in `index.html` to match the new version: `style.css?v=X.Y` and `script.js?v=X.Y`.
+5. Confirm the nav info popover will show the new values after deploy.
 
 ## Do not
 
