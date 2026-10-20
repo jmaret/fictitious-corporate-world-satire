@@ -318,19 +318,29 @@ body {
 
 .card--chronicle {
   align-content: start;
-  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.card--chronicle:hover,
-.card--chronicle:focus-visible {
+.card--chronicle[data-open-cartoon],
+.card--chronicle[data-open-essay] {
+  cursor: pointer;
+}
+
+.card--chronicle[data-open-cartoon]:hover,
+.card--chronicle[data-open-cartoon]:focus-visible,
+.card--chronicle[data-open-essay]:hover,
+.card--chronicle[data-open-essay]:focus-visible {
   transform: translateY(-3px);
   box-shadow: 0 26px 64px rgba(34, 34, 42, 0.16);
   outline: none;
 }
 
 .card--chronicle .card-excerpt {
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.card--chronicle .card-excerpt + .card-excerpt {
+  margin-top: 0;
 }
 
 .card--chronicle .card-series {
@@ -340,12 +350,38 @@ body {
   color: var(--accent);
 }
 
+.card--chronicle .card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1rem;
+}
+
 .card--chronicle .card-affordance {
   margin-top: 1rem;
   font: 700 0.78rem/1.2 'Space Mono', monospace;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
+}
+
+.card--chronicle .card-actions .card-affordance {
+  margin-top: 0;
+}
+
+.card--chronicle .card-affordance--button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.card--chronicle .card-affordance--button:hover,
+.card--chronicle .card-affordance--button:focus-visible {
+  color: var(--text);
+  outline: none;
 }
 
 .card--one {
@@ -531,6 +567,11 @@ body.evening .card--chronicle .card-affordance {
   color: var(--accent-soft);
 }
 
+body.evening .card--chronicle .card-affordance--button:hover,
+body.evening .card--chronicle .card-affordance--button:focus-visible {
+  color: #f1edf4;
+}
+
 body.evening .card {
   background: rgba(28, 24, 42, 0.92);
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.25);
@@ -630,13 +671,20 @@ body.evening .version-popover__list dd {
 
 .image-modal__image {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   max-height: calc(100vh - 6rem);
   height: auto;
   margin: 0 auto;
   border-radius: 16px;
   object-fit: contain;
-  background: #f6f2ef;
+  background: transparent;
+}
+
+.image-modal__panel:has(.image-modal__image:not([hidden])) {
+  width: fit-content;
+  max-width: min(1100px, 100%);
+  padding: 0.75rem;
 }
 
 .image-modal__image[hidden] {
@@ -673,6 +721,56 @@ body.evening .version-popover__list dd {
   color: var(--muted);
 }
 
+.image-modal__essay {
+  max-height: calc(100vh - 6rem);
+  overflow: auto;
+  padding: 1.5rem 1.75rem 2rem;
+  border-radius: 16px;
+  background: #f6f2ef;
+}
+
+.image-modal__essay[hidden] {
+  display: none;
+}
+
+.image-modal__panel:has(.image-modal__essay:not([hidden])) {
+  width: min(720px, 100%);
+}
+
+.essay__title {
+  margin: 0 2.5rem 1.5rem 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.essay__section {
+  margin: 0 0 1.5rem;
+}
+
+.essay__section:last-child {
+  margin-bottom: 0;
+}
+
+.essay__section h3 {
+  margin: 0 0 0.75rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.essay__section p {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 0.98rem;
+}
+
+.essay__section p:last-child {
+  margin-bottom: 0;
+}
+
 .image-modal__close {
   position: absolute;
   top: 0.75rem;
@@ -705,6 +803,19 @@ body.evening .image-modal__pending {
 
 body.evening .image-modal__pending-title {
   color: #f1edf4;
+}
+
+body.evening .image-modal__essay {
+  background: rgba(18, 16, 24, 0.55);
+}
+
+body.evening .essay__title,
+body.evening .essay__section h3 {
+  color: #f1edf4;
+}
+
+body.evening .essay__section p {
+  color: #d6ced9;
 }
 
 @media (max-width: 560px) {

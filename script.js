@@ -1,9 +1,9 @@
 /* Update these fields on EVERY release merged to main. */
 const SITE_VERSION = {
-  version: '1.24',
+  version: '1.28',
   notes:
-    'Relationship Chronicles tab (text-first sample cards), living product/architecture docs, and Cursor rules that require SITE_VERSION updates on every release.',
-  deployedLabel: 'September 18, 2026, 11:33 AM PDT (UTC-7)',
+    'Soft Inventory & The Physics of the Spark: shortened card snippet, Essay and View cartoon controls, full essay popup, and cropped cartoon_rc_01.',
+  deployedLabel: 'October 19, 2026, 8:29 PM PDT (UTC-7)',
 };
 
 const tabButtons = document.querySelectorAll('[data-tab-target]');
@@ -109,9 +109,20 @@ const imageModal = document.getElementById('image-modal');
 const modalImage = imageModal.querySelector('.image-modal__image');
 const modalPending = document.getElementById('image-modal-pending');
 const modalPendingTitle = document.getElementById('image-modal-pending-title');
+const modalEssay = document.getElementById('image-modal-essay');
+
+function resetModalContent() {
+  modalImage.hidden = true;
+  modalImage.removeAttribute('src');
+  modalImage.alt = '';
+  modalPending.hidden = true;
+  modalPendingTitle.textContent = '';
+  modalEssay.hidden = true;
+  modalEssay.replaceChildren();
+}
 
 function openImageModal(image) {
-  modalPending.hidden = true;
+  resetModalContent();
   modalImage.hidden = false;
   modalImage.src = image.currentSrc || image.src;
   modalImage.alt = image.alt;
@@ -122,24 +133,17 @@ function openImageModal(image) {
   imageModal.querySelector('.image-modal__close').focus();
 }
 
-function openCartoonFromCard(card) {
-  const title = card.dataset.cartoonTitle || card.querySelector('h3')?.textContent || 'Cartoon';
-  const isPending = card.hasAttribute('data-cartoon-pending');
-  const src = card.dataset.cartoonSrc;
-
+function openCartoonLightbox({ title, src, isPending = false }) {
+  resetModalContent();
   imageModal.hidden = false;
   imageModal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 
   if (isPending || !src) {
-    modalImage.hidden = true;
-    modalImage.removeAttribute('src');
-    modalImage.alt = '';
     modalPending.hidden = false;
     modalPendingTitle.textContent = title;
     imageModal.setAttribute('aria-label', `${title}. Illustration forthcoming`);
   } else {
-    modalPending.hidden = true;
     modalImage.hidden = false;
     modalImage.src = src;
     modalImage.alt = `Cartoon: ${title}`;
@@ -149,22 +153,94 @@ function openCartoonFromCard(card) {
   imageModal.querySelector('.image-modal__close').focus();
 }
 
+function openCartoonFromCard(card) {
+  openCartoonLightbox({
+    title: card.dataset.cartoonTitle || card.querySelector('h3')?.textContent || 'Cartoon',
+    src: card.dataset.cartoonSrc,
+    isPending: card.hasAttribute('data-cartoon-pending'),
+  });
+}
+
+function openEssayFromCard(card) {
+  const essayId = card.dataset.essayId;
+  const template = essayId ? document.getElementById(essayId) : null;
+  const title = card.querySelector('h3')?.textContent || 'Essay';
+
+  if (!template) {
+    return;
+  }
+
+  resetModalContent();
+  modalEssay.appendChild(template.content.cloneNode(true));
+  modalEssay.hidden = false;
+  imageModal.hidden = false;
+  imageModal.setAttribute('aria-hidden', 'false');
+  imageModal.setAttribute('aria-label', title);
+  document.body.style.overflow = 'hidden';
+  imageModal.querySelector('.image-modal__close').focus();
+}
+
 function closeImageModal() {
   imageModal.hidden = true;
   imageModal.setAttribute('aria-hidden', 'true');
   imageModal.setAttribute('aria-label', 'Enlarged cartoon');
+  resetModalContent();
   modalImage.hidden = false;
-  modalImage.removeAttribute('src');
-  modalImage.alt = '';
-  modalPending.hidden = true;
-  modalPendingTitle.textContent = '';
   document.body.style.overflow = '';
 }
 
+function openChronicleCard(card) {
+  if (card.hasAttribute('data-open-essay')) {
+    openEssayFromCard(card);
+    return;
+  }
+
+  if (card.hasAttribute('data-open-cartoon')) {
+    openCartoonFromCard(card);
+  }
+}
+
+function openEssayFromControl(control) {
+  const card = control.closest('.card');
+  if (!card) {
+    return;
+  }
+
+  openEssayFromCard(card);
+}
+
+function openCartoonFromControl(control) {
+  const card = control.closest('.card');
+  openCartoonLightbox({
+    title:
+      card?.dataset.cartoonTitle ||
+      card?.querySelector('h3')?.textContent ||
+      'Cartoon',
+    src: card?.dataset.cartoonSrc || control.dataset.cartoonSrc,
+    isPending: false,
+  });
+}
+
 document.addEventListener('click', (event) => {
-  const chronicleCard = event.target.closest('[data-open-cartoon]');
+  const viewEssay = event.target.closest('[data-view-essay]');
+  if (viewEssay) {
+    event.preventDefault();
+    event.stopPropagation();
+    openEssayFromControl(viewEssay);
+    return;
+  }
+
+  const viewCartoon = event.target.closest('[data-view-cartoon]');
+  if (viewCartoon) {
+    event.preventDefault();
+    event.stopPropagation();
+    openCartoonFromControl(viewCartoon);
+    return;
+  }
+
+  const chronicleCard = event.target.closest('[data-open-cartoon], [data-open-essay]');
   if (chronicleCard) {
-    openCartoonFromCard(chronicleCard);
+    openChronicleCard(chronicleCard);
     return;
   }
 
@@ -179,13 +255,29 @@ document.addEventListener('keydown', (event) => {
     return;
   }
 
-  const chronicleCard = event.target.closest('[data-open-cartoon]');
+  const viewEssay = event.target.closest('[data-view-essay]');
+  if (viewEssay && event.target === viewEssay) {
+    event.preventDefault();
+    event.stopPropagation();
+    openEssayFromControl(viewEssay);
+    return;
+  }
+
+  const viewCartoon = event.target.closest('[data-view-cartoon]');
+  if (viewCartoon && event.target === viewCartoon) {
+    event.preventDefault();
+    event.stopPropagation();
+    openCartoonFromControl(viewCartoon);
+    return;
+  }
+
+  const chronicleCard = event.target.closest('[data-open-cartoon], [data-open-essay]');
   if (!chronicleCard || event.target !== chronicleCard) {
     return;
   }
 
   event.preventDefault();
-  openCartoonFromCard(chronicleCard);
+  openChronicleCard(chronicleCard);
 });
 
 imageModal.querySelectorAll('[data-modal-close]').forEach((element) => {

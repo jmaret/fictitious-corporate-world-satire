@@ -1,7 +1,7 @@
 # Satyre — Architecture & Design
 
 **Status:** Living document  
-**Last updated:** September 18, 2026  
+**Last updated:** October 19, 2026  
 **Companion:** [PRODUCT_VISION_AND_REQUIREMENTS.md](./PRODUCT_VISION_AND_REQUIREMENTS.md)
 
 ## 1. Overview
@@ -51,7 +51,7 @@ flowchart TB
 - **Nav** (`.tab-nav`): sticky; start = author thumbnail; center = tab buttons; end = version control + mailto.
 - **Tabs:** `[data-tab-target]` buttons toggle `.tab-panel` visibility (`hidden` / `.is-active`) and `aria-selected`.
 - **Version:** `SITE_VERSION` in `script.js` populates the popover (version, notes, `deployedLabel` with timezone).
-- **Modal:** single `#image-modal` for enlarged cartoons and Relationship “Illustration forthcoming” state.
+- **Modal:** single `#image-modal` for enlarged cartoons, Relationship “Illustration forthcoming” state, and long-form essay content (`.image-modal__essay`).
 
 ### 3.2 Collection panels
 
@@ -64,9 +64,10 @@ Each panel: `header.hero` + `main.page-body` → `.gallery-grid` of `.card` arti
 
 **Chronicle cards (relationships)**
 
-- `.card.card--chronicle` with `data-open-cartoon`, optional `data-cartoon-pending`, `data-cartoon-src`, `data-cartoon-title`.
-- No visible cartoon on the card; text + “View cartoon” affordance.
-- Click / Enter / Space → `openCartoonFromCard` (image or pending UI).
+- `.card.card--chronicle` with either:
+  - `data-open-cartoon` (+ optional `data-cartoon-pending`, `data-cartoon-src`, `data-cartoon-title`) → whole-card click opens cartoon / forthcoming state.
+  - Essay + cartoon pair: `data-essay-id` + `data-cartoon-src`; **Essay** (`[data-view-essay]`) clones the `<template>` into `#image-modal-essay`; **View cartoon** (`[data-view-cartoon]`) opens the PNG. Card body text does not open either modal.
+- No visible cartoon on the card; text leads.
 
 ### 3.3 Asset naming
 
@@ -74,7 +75,7 @@ Each panel: `header.hero` + `main.page-body` → `.gallery-grid` of `.card` arti
 | --- | --- |
 | `cartoon_co_*.png` | Corporate (newer series); older pieces may use `cartoonN.png` |
 | `cartoon_ci_*.png` | Civilian |
-| `cartoon_re_*.png` | Relationship Chronicles |
+| `cartoon_rc_*.png` | Relationship Chronicles |
 
 Newest work is **prepended** in the grid (first row = latest).
 
@@ -96,6 +97,8 @@ Newest work is **prepended** in the grid (first row = latest).
 | Lightbox close | Backdrop, ×, or Escape; clear image/pending state |
 | Version popover | Toggle on info button; outside click / Escape closes |
 | Chronicle pending | Hide modal image; show `#image-modal-pending` with title + “Illustration forthcoming” |
+| Essay control | `[data-view-essay]` clones `<template>` into `#image-modal-essay` (scrollable text panel) |
+| View cartoon control | `[data-view-cartoon]` opens `cartoon_rc_*` in lightbox |
 
 ## 4. Delivery & release
 
@@ -112,7 +115,7 @@ When adding a piece:
 
 1. Drop PNG into `images/` with the correct prefix.
 2. Prepend a card in the matching panel in `index.html`.
-3. For chronicles: set `data-cartoon-src`; remove `data-cartoon-pending` when the art is ready.
+3. For chronicles: set `data-cartoon-src` and clear `data-cartoon-pending` when art is ready; or use `data-open-essay` + a `<template id="...">` for long-form pieces.
 4. Add a border-top modifier in `style.css` if introducing a new accent class.
 5. Bump `SITE_VERSION` on **every** merge to `main`, and refresh `docs/` + README if behavior or collections change.
 

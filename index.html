@@ -373,31 +373,74 @@
         </article>
         <article
           class="card card--chronicle card--re-one"
-          tabindex="0"
-          role="button"
-          data-open-cartoon
-          data-cartoon-pending
-          data-cartoon-src="images/cartoon_re_01.png"
-          data-cartoon-title="The Soft Inventory"
-          aria-label="The Soft Inventory. View cartoon."
+          data-essay-id="essay-soft-inventory"
+          data-cartoon-src="images/cartoon_rc_01.png"
+          data-cartoon-title="The Soft Inventory & The Physics of the Spark"
         >
           <div class="card-copy">
-            <h3>The Soft Inventory</h3>
-            <p class="card-excerpt">A refilled water glass. A remembered allergy. A glance across a crowded room that says I see you. Intimacy is often logistical—an inventory of small mercies that never announce themselves as love.</p>
+            <h3>The Soft Inventory &amp; The Physics of the Spark</h3>
+            <p class="card-excerpt">We curate quiet mercies for those we love—softening their edges, anticipating their shadows, keeping a tender ledger of their needs. Yet when we look inward, the pen drops. We become the only soul in the room we forget to care for.</p>
             <p class="card-series">Relationship Chronicles 1</p>
-            <p class="card-affordance">View cartoon</p>
+            <div class="card-actions">
+              <button
+                class="card-affordance card-affordance--button"
+                type="button"
+                data-view-essay
+                aria-label="Open essay: The Soft Inventory & The Physics of the Spark"
+              >
+                Essay
+              </button>
+              <button
+                class="card-affordance card-affordance--button"
+                type="button"
+                data-view-cartoon
+                aria-label="View cartoon for The Soft Inventory & The Physics of the Spark"
+              >
+                View cartoon
+              </button>
+            </div>
           </div>
         </article>
       </div>
     </main>
   </section>
 
+  <template id="essay-soft-inventory">
+    <article class="essay">
+      <h2 class="essay__title">The Soft Inventory &amp; The Physics of the Spark</h2>
+      <section class="essay__section">
+        <h3>I. The Soft Inventory</h3>
+        <p>A refilled water glass. A remembered allergy. A glance across a crowded room that says I see you. Intimacy is often logistical—an inventory of small mercies that never announce themselves as love.</p>
+        <p>We keep these inventories for others intuitively when we care for them. We notice their small preferences, cushion their falls, and remember where their rough edges lie. Yet, when we turn the lens inward toward our own lives, our internal inventory often tells a very different story—one not of attentive care, but of stillness, hesitation, and weight.</p>
+      </section>
+      <section class="essay__section">
+        <h3>II. The Architecture of Inertia</h3>
+        <p>Left to its own devices, human nature defaults to a quiet conservation of energy. We call it inertia, but the word is too sterile for what it actually feels like.</p>
+        <p>Inertia is rarely just sitting still; it is an invisible, heavy atmosphere. Sometimes it is physiological—the bone-deep weariness of a body dealing with illness, or a mind weighed down by mental exhaustion. Other times, it is psychological—a quiet, protective armor built out of fear. We stay still because we fear failure, or worse, because we fear the unknown. Even a context that makes us unhappy can feel strangely comforting simply because it is predictable. The mind prefers a familiar cage to an unfamiliar open field.</p>
+        <p>So we remain in place. We stay in the same roles, the same routines, the same internal climates, waiting for something outside of us to shift the terrain.</p>
+      </section>
+      <section class="essay__section">
+        <h3>III. The Limits of External Sparks</h3>
+        <p>Because inertia is a universal human tax, the world is eager to sell us the antidote. We are surrounded by advice, frameworks, and well-meaning challenges. People tell us to "find our purpose," hire a coach, or find an accountability partner to drag us across the starting line.</p>
+        <p>These external forces can provide a temporary scaffold, but they cannot build the structure. An external push might move a body, but it cannot move a soul. If the impulse to change context relies entirely on outside pressure, the moment that pressure relaxes, we snap right back to our original shape.</p>
+        <p>Ultimately, the challenge cannot be delegated. The spark must be internal. No one else can decide for you that the quiet discomfort of remaining static has finally outgrown the scary uncertainty of motion.</p>
+      </section>
+      <section class="essay__section">
+        <h3>IV. Following Curiosity Into the Adventure</h3>
+        <p>How, then, do we bridge the gap between The Soft Inventory and the leap into change?</p>
+        <p>Perhaps the answer is not a heroic, aggressive surge of willpower, but rather a quiet pivot toward curiosity.</p>
+        <p>When we replace the fear of "What if I fail?" with the open-ended curiosity of "What else could be?", the nature of change shifts. It stops being a terrifying test of character and becomes an adventure. To change context is to make an offer of self-compassion—a small, logistical mercy extended to your future self, much like that refilled glass of water.</p>
+        <p>The fruits of moving forward are never guaranteed. The terrain ahead will be uncertain, and the path will require genuine effort against the gravity of your own habits. But the invitation remains open every day: Are you ready for the adventure?</p>
+      </section>
+    </article>
+  </template>
+
   <footer class="site-footer">
     <p style="font-size: 10px; color: #888888; line-height: 1.1;">A masterclass in modern delegation. I told the AI what I wanted, it hallucinated a lightweight stack of HTML, CSS, and PNG cartoons, and I took 100% of the credit. Work smarter, not harder, then circle back for a nap.</p>
   </footer>
 
   <div class="image-modal" id="image-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Enlarged cartoon">
-    <button class="image-modal__backdrop" type="button" aria-label="Close enlarged image" data-modal-close></button>
+    <button class="image-modal__backdrop" type="button" aria-label="Close dialog" data-modal-close></button>
     <div class="image-modal__panel">
       <button class="image-modal__close" type="button" aria-label="Close" data-modal-close>&times;</button>
       <img class="image-modal__image" src="" alt="" />
@@ -405,6 +448,7 @@
         <p class="image-modal__pending-title" id="image-modal-pending-title"></p>
         <p class="image-modal__pending-copy">Illustration forthcoming</p>
       </div>
+      <div class="image-modal__essay" id="image-modal-essay" hidden></div>
     </div>
   </div>
 

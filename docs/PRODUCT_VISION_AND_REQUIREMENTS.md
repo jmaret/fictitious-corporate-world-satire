@@ -1,7 +1,7 @@
 # Satyre — Product Vision & Requirements
 
 **Status:** Living document  
-**Last updated:** September 18, 2026  
+**Last updated:** October 19, 2026  
 **Site:** [satyre.xyz](https://satyre.xyz)
 
 ## 1. Product vision
@@ -39,9 +39,11 @@ The product exists to:
 ### 3.3 Fictitious Relationship Chronicles
 
 - **Tone:** Reflective; at times funny; at times poignant.
-- **Surface:** **Verbiage-first** cards (title + short reflective paragraph + series label + “View cartoon” affordance). No visible thumbnail by default.
-- **Interaction:** Click (or Enter/Space on focused card) opens shared lightbox with the cartoon.
-- **Scaffold:** Until a cartoon exists, cards may use `data-cartoon-pending`; lightbox shows title + “Illustration forthcoming.”
+- **Surface:** **Verbiage-first** cards (title + short reflective paragraph(s) + series label + affordance). No visible thumbnail by default.
+- **Interaction:** Click (or Enter/Space on focused card) opens the shared modal—either a **cartoon** lightbox or a **full essay** popup, depending on the piece.
+- **Essay pieces:** Long-form content lives in a `<template>` (e.g. Soft Inventory & The Physics of the Spark). **Essay** opens only via an explicit `data-view-essay` control—not by clicking card body text.
+- **Cartoon on essay cards:** Optional **View cartoon** control (`data-view-cartoon`) opens `cartoon_rc_*.png` in the shared lightbox.
+- **Scaffold cartoons:** Until a cartoon exists, cards may use `data-cartoon-pending`; lightbox shows title + “Illustration forthcoming.” Affordance: “View cartoon.”
 
 ## 4. Cross-cutting product requirements
 
