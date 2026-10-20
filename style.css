@@ -384,6 +384,15 @@ body {
   outline: none;
 }
 
+.card--chronicle-feature {
+  grid-column: 1 / -1;
+}
+
+.card--chronicle-feature .card-copy {
+  max-width: none;
+  width: 100%;
+}
+
 .card--one {
   border-top: 6px solid #bf4f82;
 }
@@ -494,6 +503,10 @@ body {
 
 .card--sixteen {
   border-top: 6px solid #d6a23e;
+}
+
+.card--re-four {
+  border-top: 6px solid #8a6a4a;
 }
 
 .card--re-three {

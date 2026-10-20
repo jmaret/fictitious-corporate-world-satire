@@ -1,9 +1,9 @@
 /* Update these fields on EVERY release merged to main. */
 const SITE_VERSION = {
-  version: '1.31',
+  version: '1.34',
   notes:
-    'Relationship Chronicles: Unsent Draft, Two Clocks, and Soft Inventory now share Essay + View cartoon; cartoon_rc_02/03 added; CSS/JS cache-busting via ?v=.',
-  deployedLabel: 'October 19, 2026, 9:33 PM PDT (UTC-7)',
+    'Borrowed Constellations full-width feature row with eight-section essay and cartoon_rc_04 above the three chronicle cards.',
+  deployedLabel: 'October 20, 2026, 10:52 AM PDT (UTC-7)',
 };
 
 const tabButtons = document.querySelectorAll('[data-tab-target]');
