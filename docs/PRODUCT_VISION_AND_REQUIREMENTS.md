@@ -1,7 +1,8 @@
 # Satyre — Product Vision & Requirements
 
 **Status:** Living document  
-**Last updated:** October 19, 2026  
+**Last updated:** October 19, 2026
+  
 **Site:** [satyre.xyz](https://satyre.xyz)
 
 ## 1. Product vision
@@ -52,7 +53,7 @@ The product exists to:
 | P1 | Shared sticky nav with branding, collection tabs, version info, and contact email—visible from every tab |
 | P2 | Each collection has a hero (eyebrow, title, short framing copy) plus a responsive gallery grid |
 | P3 | Newest pieces are prepended so the first row is always the latest work |
-| P4 | Version control in the nav exposes version, latest-change notes, and deploy timestamp **with timezone**. **`SITE_VERSION` in `script.js` must be updated on every release merged to `main`** (no exemptions for docs- or rules-only changes). |
+| P4 | Version control in the nav exposes version, latest-change notes, and deploy timestamp **with timezone**. **`SITE_VERSION` in `script.js` must be updated on every release merged to `main`** (no exemptions for docs- or rules-only changes). Cache-bust `style.css?v=` / `script.js?v=` in `index.html` must match that version. |
 | P5 | Experience must work without a build step, login, or backend |
 | P6 | Styling across tabs remains congruent (same chrome, card shell, accent language) even when content patterns differ |
 | P7 | Mobile and desktop layouts remain usable (gallery 1 / 2 / 3 columns by breakpoint) |

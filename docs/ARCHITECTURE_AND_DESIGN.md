@@ -1,7 +1,8 @@
 # Satyre — Architecture & Design
 
 **Status:** Living document  
-**Last updated:** October 19, 2026  
+**Last updated:** October 19, 2026
+  
 **Companion:** [PRODUCT_VISION_AND_REQUIREMENTS.md](./PRODUCT_VISION_AND_REQUIREMENTS.md)
 
 ## 1. Overview
@@ -105,9 +106,10 @@ Newest work is **prepended** in the grid (first row = latest).
 1. Change content/code on a branch; merge to `main`.
 2. GitHub Pages publishes static files from repo root.
 3. **On every release to `main`:** update `SITE_VERSION` in `script.js`—bump `version`, rewrite `notes` for this ship, set `deployedLabel` to the actual release date/time **with timezone**. Enforced by `.cursor/rules/update-site-version-on-release.mdc`.
-4. Update living docs under `docs/` (enforced by Cursor rules).
+4. **Cache bust:** set `href="style.css?v=X.Y"` and `src="script.js?v=X.Y"` in `index.html` to the same `X.Y` as `SITE_VERSION.version`, so browsers fetch fresh CSS/JS after deploy.
+5. Update living docs under `docs/` (enforced by Cursor rules).
 
-The nav info popover reads only from `SITE_VERSION`; if that object is stale, visitors see a stale release.
+The nav info popover reads only from `SITE_VERSION`; if that object is stale, visitors see a stale release. Without the `?v=` params, GitHub Pages visitors can keep a cached `script.js`/`style.css` after HTML updates.
 
 ## 5. Extension guidelines
 
@@ -117,7 +119,7 @@ When adding a piece:
 2. Prepend a card in the matching panel in `index.html`.
 3. For chronicles: set `data-cartoon-src` and clear `data-cartoon-pending` when art is ready; or use `data-open-essay` + a `<template id="...">` for long-form pieces.
 4. Add a border-top modifier in `style.css` if introducing a new accent class.
-5. Bump `SITE_VERSION` on **every** merge to `main`, and refresh `docs/` + README if behavior or collections change.
+5. Bump `SITE_VERSION` on **every** merge to `main`, sync `?v=` on `style.css` / `script.js` in `index.html`, and refresh `docs/` + README if behavior or collections change.
 
 When adding a collection:
 
