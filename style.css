@@ -384,6 +384,15 @@ body {
   outline: none;
 }
 
+.gallery-feature-solo {
+  grid-column: 1 / -1;
+}
+
+.gallery-feature-solo .card-copy {
+  max-width: none;
+  width: 100%;
+}
+
 .gallery-feature-row {
   grid-column: 1 / -1;
   display: grid;
@@ -517,6 +526,10 @@ body {
 
 .card--sixteen {
   border-top: 6px solid #d6a23e;
+}
+
+.card--re-six {
+  border-top: 6px solid #7a6b8a;
 }
 
 .card--re-five {
