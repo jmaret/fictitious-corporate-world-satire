@@ -1,9 +1,9 @@
 /* Update these fields on EVERY release merged to main. */
 const SITE_VERSION = {
-  version: '1.35',
+  version: '1.36',
   notes:
-    'Top Relationship Chronicles row split into Elastic Hour (left) and Borrowed Constellations (right); cartoon_rc_05 added.',
-  deployedLabel: 'October 20, 2026, 2:49 PM PDT (UTC-7)',
+    'The Mountain and the Pebbles solo feature row above Elastic Hour and Borrowed Constellations; cartoon_rc_06 added.',
+  deployedLabel: 'October 22, 2026, 9:10 AM PDT (UTC-7)',
 };
 
 const tabButtons = document.querySelectorAll('[data-tab-target]');
