@@ -1,9 +1,9 @@
 /* Update these fields on EVERY release merged to main. */
 const SITE_VERSION = {
-  version: '1.37',
+  version: '1.38',
   notes:
-    'The Tomorrow Tax solo lead card; Mountain and the Pebbles leads a three-card second row with Elastic Hour and Borrowed Constellations; cartoon_rc_07 added.',
-  deployedLabel: 'October 24, 2026, 9:58 PM PDT (UTC-7)',
+    'The Peaks and the Valleys joins Tomorrow Tax in a two-card first feature row; cartoon_rc_08 added.',
+  deployedLabel: 'October 24, 2026, 10:17 PM PDT (UTC-7)',
 };
 
 const tabButtons = document.querySelectorAll('[data-tab-target]');

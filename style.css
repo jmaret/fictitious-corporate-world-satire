@@ -532,6 +532,10 @@ body {
   border-top: 6px solid #d6a23e;
 }
 
+.card--re-eight {
+  border-top: 6px solid #8b6b4a;
+}
+
 .card--re-seven {
   border-top: 6px solid #5c7a6b;
 }
