@@ -1,7 +1,7 @@
 # Satyre — Architecture & Design
 
 **Status:** Living document  
-**Last updated:** October 22, 2026
+**Last updated:** October 24, 2026
   
 **Companion:** [PRODUCT_VISION_AND_REQUIREMENTS.md](./PRODUCT_VISION_AND_REQUIREMENTS.md)
 
@@ -68,7 +68,7 @@ Each panel: `header.hero` + `main.page-body` → `.gallery-grid` of `.card` arti
 - `.card.card--chronicle` with either:
   - `data-open-cartoon` (+ optional `data-cartoon-pending`, `data-cartoon-src`, `data-cartoon-title`) → whole-card click opens cartoon / forthcoming state.
   - Essay + cartoon pair: `data-essay-id` + `data-cartoon-src`; **Essay** (`[data-view-essay]`) clones the `<template>` into `#image-modal-essay`; **View cartoon** (`[data-view-cartoon]`) opens the PNG. Card body text does not open either modal.
-- Feature lead pieces sit above the standard three-column chronicle cards: `.gallery-feature-solo` for a single full-width card, and `.gallery-feature-row` (`grid-column: 1 / -1`, two columns from 900px) for a two-up pair.
+- Feature lead pieces sit above the standard three-column chronicle cards: `.gallery-feature-solo` for a single full-width card (e.g. Tomorrow Tax), and `.gallery-feature-row` (`grid-column: 1 / -1`; two columns from 900px, three when the row has three children) for the next feature band (e.g. Mountain and the Pebbles + Elastic Hour + Borrowed Constellations).
 - No visible cartoon on the card; text leads.
 
 ### 3.3 Asset naming
