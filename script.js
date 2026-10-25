@@ -3,7 +3,7 @@ const SITE_VERSION = {
   version: '1.37',
   notes:
     'The Tomorrow Tax solo lead card; Mountain and the Pebbles leads a three-card second row with Elastic Hour and Borrowed Constellations; cartoon_rc_07 added.',
-  deployedLabel: 'October 24, 2026, 9:53 PM PDT (UTC-7)',
+  deployedLabel: 'October 24, 2026, 9:58 PM PDT (UTC-7)',
 };
 
 const tabButtons = document.querySelectorAll('[data-tab-target]');

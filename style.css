@@ -406,7 +406,7 @@ body {
     align-items: stretch;
   }
 
-  .gallery-feature-row:has(:nth-child(3)) {
+  .gallery-feature-row:has(> :nth-child(3)) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
