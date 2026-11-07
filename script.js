@@ -1,9 +1,9 @@
 /* Update these fields on EVERY release merged to main. */
 const SITE_VERSION = {
-  version: '1.38',
+  version: '1.39',
   notes:
-    'The Peaks and the Valleys joins Tomorrow Tax in a two-card first feature row; cartoon_rc_08 added.',
-  deployedLabel: 'October 24, 2026, 10:17 PM PDT (UTC-7)',
+    'The Geography of Distance solo lead row above Peaks and the Valleys and Tomorrow Tax; cartoon_rc_09 added.',
+  deployedLabel: 'November 7, 2026, 6:06 PM EST (UTC-5)',
 };
 
 const tabButtons = document.querySelectorAll('[data-tab-target]');
