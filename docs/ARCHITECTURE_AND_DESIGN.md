@@ -1,7 +1,7 @@
 # Satyre — Architecture & Design
 
 **Status:** Living document  
-**Last updated:** November 7, 2026
+**Last updated:** November 11, 2026
   
 **Companion:** [PRODUCT_VISION_AND_REQUIREMENTS.md](./PRODUCT_VISION_AND_REQUIREMENTS.md)
 
@@ -20,14 +20,11 @@ flowchart TB
   subgraph panels [Collection panels]
     Corporate[corporate]
     Civilian[civilian]
-    Relationships[relationships]
   end
   Nav --> Corporate
   Nav --> Civilian
-  Nav --> Relationships
   Corporate --> Modal
   Civilian --> Modal
-  Relationships --> Modal
   Nav --- Version
   Nav --- Contact
 ```
@@ -36,9 +33,9 @@ flowchart TB
 
 | Path | Responsibility |
 | --- | --- |
-| `index.html` | Markup: nav, three tab panels, cards, footer, modal shell |
+| `index.html` | Markup: nav, two tab panels, cards, footer, modal shell |
 | `style.css` | Tokens, layout, gallery, cards, evening theme, modal/popover |
-| `script.js` | Tabs, animations, lightbox (incl. pending state), version popover, time-of-day theme |
+| `script.js` | Tabs, animations, lightbox, version popover, time-of-day theme |
 | `images/` | Cartoon PNGs and brand imagery |
 | `CNAME` | GitHub Pages custom domain |
 | `README.md` | Short public overview + local/deploy notes |
@@ -52,7 +49,7 @@ flowchart TB
 - **Nav** (`.tab-nav`): sticky; start = author thumbnail; center = tab buttons; end = version control + mailto.
 - **Tabs:** `[data-tab-target]` buttons toggle `.tab-panel` visibility (`hidden` / `.is-active`) and `aria-selected`.
 - **Version:** `SITE_VERSION` in `script.js` populates the popover (version, notes, `deployedLabel` with timezone).
-- **Modal:** single `#image-modal` for enlarged cartoons, Relationship “Illustration forthcoming” state, and long-form essay content (`.image-modal__essay`).
+- **Modal:** single `#image-modal` for enlarged cartoons.
 
 ### 3.2 Collection panels
 
@@ -63,21 +60,12 @@ Each panel: `header.hero` + `main.page-body` → `.gallery-grid` of `.card` arti
 - Visible `<img>` + `.card-copy` (`h3` + series `<p>`).
 - Click on `.card img` (or `.author-thumbnail`) → `openImageModal`.
 
-**Chronicle cards (relationships)**
-
-- `.card.card--chronicle` with either:
-  - `data-open-cartoon` (+ optional `data-cartoon-pending`, `data-cartoon-src`, `data-cartoon-title`) → whole-card click opens cartoon / forthcoming state.
-  - Essay + cartoon pair: `data-essay-id` + `data-cartoon-src`; **Essay** (`[data-view-essay]`) clones the `<template>` into `#image-modal-essay`; **View cartoon** (`[data-view-cartoon]`) opens the PNG. Card body text does not open either modal.
-- Feature lead pieces sit above the standard three-column chronicle cards: `.gallery-feature-solo` for a single full-width card when needed (e.g. Geography of Distance), and `.gallery-feature-row` (`grid-column: 1 / -1`; two columns from 900px, three when the row has three direct children via `:has(> :nth-child(3))`) for feature bands (e.g. Peaks and the Valleys + Tomorrow Tax; then Mountain and the Pebbles + Elastic Hour + Borrowed Constellations).
-- No visible cartoon on the card; text leads.
-
 ### 3.3 Asset naming
 
 | Prefix | Collection |
 | --- | --- |
 | `cartoon_co_*.png` | Corporate (newer series); older pieces may use `cartoonN.png` |
 | `cartoon_ci_*.png` | Civilian |
-| `cartoon_rc_*.png` | Relationship Chronicles |
 
 Newest work is **prepended** in the grid (first row = latest).
 
@@ -86,9 +74,9 @@ Newest work is **prepended** in the grid (first row = latest).
 - **Fonts:** Inter (UI/body), Playfair Display (display titles), Space Mono (small labels).
 - **Tokens:** CSS variables in `:root` (`--bg`, `--panel`, `--text`, `--muted`, `--accent`, `--shadow`).
 - **Grid:** 1 column default; 2 from 640px; 3 from 1024px.
-- **Cards:** Shared shell; colored `border-top` modifiers (`card--co-*`, `card--ci-*`, `card--re-*`).
+- **Cards:** Shared shell; colored `border-top` modifiers (`card--co-*`, `card--ci-*`).
 - **Evening theme:** `body.evening` when local hour ≥ 18 or &lt; 7.
-- **Congruence rule:** New collections reuse chrome and card shell; only content pattern may diverge (e.g. verbiage-first).
+- **Congruence rule:** New collections reuse chrome and card shell; only content pattern may diverge.
 
 ### 3.5 Interaction design
 
@@ -96,11 +84,8 @@ Newest work is **prepended** in the grid (first row = latest).
 | --- | --- |
 | Tab switch | Update active button/panel; re-run `animateCards` on active panel |
 | Lightbox open | Lock body scroll; focus close control |
-| Lightbox close | Backdrop, ×, or Escape; clear image/pending state |
+| Lightbox close | Backdrop, ×, or Escape; clear image state |
 | Version popover | Toggle on info button; outside click / Escape closes |
-| Chronicle pending | Hide modal image; show `#image-modal-pending` with title + “Illustration forthcoming” |
-| Essay control | `[data-view-essay]` clones `<template>` into `#image-modal-essay` (scrollable text panel) |
-| View cartoon control | `[data-view-cartoon]` opens `cartoon_rc_*` in lightbox |
 
 ## 4. Delivery & release
 
@@ -118,9 +103,8 @@ When adding a piece:
 
 1. Drop PNG into `images/` with the correct prefix.
 2. Prepend a card in the matching panel in `index.html`.
-3. For chronicles: set `data-cartoon-src` and clear `data-cartoon-pending` when art is ready; or use `data-open-essay` + a `<template id="...">` for long-form pieces.
-4. Add a border-top modifier in `style.css` if introducing a new accent class.
-5. Bump `SITE_VERSION` on **every** merge to `main`, sync `?v=` on `style.css` / `script.js` in `index.html`, and refresh `docs/` + README if behavior or collections change.
+3. Add a border-top modifier in `style.css` if introducing a new accent class.
+4. Bump `SITE_VERSION` on **every** merge to `main`, sync `?v=` on `style.css` / `script.js` in `index.html`, and refresh `docs/` + README if behavior or collections change.
 
 When adding a collection:
 
