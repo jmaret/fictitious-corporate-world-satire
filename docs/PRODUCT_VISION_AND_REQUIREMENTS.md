@@ -1,18 +1,18 @@
 # Satyre — Product Vision & Requirements
 
 **Status:** Living document  
-**Last updated:** November 7, 2026
+**Last updated:** November 11, 2026
   
 **Site:** [satyre.xyz](https://satyre.xyz)
 
 ## 1. Product vision
 
-Satyre is a lightweight stage for short-form visual satire and reflective storytelling about everyday systems. It privileges sharp writing and cartoons over platform complexity: publish quickly, read easily, let the piece carry the point.
+Satyre is a lightweight stage for short-form visual satire about everyday systems. It privileges sharp writing and cartoons over platform complexity: publish quickly, read easily, let the piece carry the point.
 
 The product exists to:
 
-- Curate ongoing collections of cartoons and chronicles that feel cohesive but standalone.
-- Contrast **fictitious** exaggeration (corporate and civilian satire) with **reflective** intimacy (relationship chronicles).
+- Curate ongoing collections of cartoons that feel cohesive but standalone.
+- Contrast **fictitious** exaggeration across corporate theater and civilian absurdity.
 - Stay small enough that adding a new piece is a content change, not an engineering project.
 
 ## 2. Audiences
@@ -37,16 +37,6 @@ The product exists to:
 - **Surface:** Same image-first card pattern as corporate.
 - **Interaction:** Same lightbox behavior.
 
-### 3.3 Fictitious Relationship Chronicles
-
-- **Tone:** Reflective; at times funny; at times poignant.
-- **Surface:** **Verbiage-first** cards (title + short reflective paragraph(s) + series label + affordance). No visible thumbnail by default.
-- **Interaction:** Click (or Enter/Space on focused card) opens the shared modal—either a **cartoon** lightbox or a **full essay** popup, depending on the piece.
-- **Essay pieces:** Long-form content lives in a `<template>` (e.g. Soft Inventory, Two Clocks, Unsent Draft, Borrowed Constellations). **Essay** opens only via an explicit `data-view-essay` control—not by clicking card body text.
-- **Feature rows:** A solo full-width lead card (`.gallery-feature-solo`) and/or multi-card feature rows (`.gallery-feature-row`, two or three across from 900px) may sit above the three-column card row (e.g. Geography of Distance; then Peaks and the Valleys + Tomorrow Tax; then Mountain and the Pebbles + Elastic Hour + Borrowed Constellations).
-- **Cartoon on essay cards:** Optional **View cartoon** control (`data-view-cartoon`) opens `cartoon_rc_*.png` in the shared lightbox.
-- **Scaffold cartoons:** Until a cartoon exists, cards may use `data-cartoon-pending`; lightbox shows title + “Illustration forthcoming.” Affordance: “View cartoon.”
-
 ## 4. Cross-cutting product requirements
 
 | ID | Requirement |
@@ -58,19 +48,18 @@ The product exists to:
 | P5 | Experience must work without a build step, login, or backend |
 | P6 | Styling across tabs remains congruent (same chrome, card shell, accent language) even when content patterns differ |
 | P7 | Mobile and desktop layouts remain usable (gallery 1 / 2 / 3 columns by breakpoint) |
-| P8 | Accessibility basics: tab buttons with `aria-selected`, modal dialog semantics, keyboard close (Escape), chronicle cards operable by keyboard |
+| P8 | Accessibility basics: tab buttons with `aria-selected`, modal dialog semantics, keyboard close (Escape) |
 
 ## 5. Non-goals
 
 - User accounts, comments, CMS, or analytics-heavy product surface
 - Framework / SPA rewrite
 - Backend APIs or dynamic content servers
-- Turning Relationship Chronicles into image-first satire cards (verbiage leads by design)
 
 ## 6. Success criteria
 
 - A visitor can switch collections and understand the tone of each within one viewport of hero copy.
-- A new cartoon or chronicle can be added by editing static files and merging to `main`.
+- A new cartoon can be added by editing static files and merging to `main`.
 - Release notes in the version popover accurately describe what just shipped and when.
 
 ## 7. Document maintenance
